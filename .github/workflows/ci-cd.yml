@@ -95,7 +95,7 @@ jobs:
       - name: Deploy to EC2 Production
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.EC2_PROD_HOST }}
+          host: ${{ secrets.EC2_PRODUCTION_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
