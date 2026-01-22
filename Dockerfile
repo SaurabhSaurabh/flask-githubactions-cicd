@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5000
 
 # Run Flask app with Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+CMD ["python", "app.py"]
