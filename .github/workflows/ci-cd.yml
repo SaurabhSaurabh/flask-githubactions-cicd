@@ -13,6 +13,7 @@ jobs:
   # -------------------
   test:
     runs-on: ubuntu-latest
+    environment: staging
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
