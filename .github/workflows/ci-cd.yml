@@ -52,6 +52,14 @@ jobs:
     if: github.ref == 'refs/heads/staging'
     environment: staging
     steps:
+      - name: Debug Secrets Presence
+        run: |
+          # checks secrets are set
+          if [ -z "${{ secrets.EC2_SSH_KEY }}" ]; then echo "❌ EC2_SSH_KEY is empty"; else echo "✅ EC2_SSH_KEY is set"; fi
+          if [ -z "${{ secrets.EC2_STAGING_HOST }}" ]; then echo "❌ EC2_STAGING_HOST is empty"; else echo "✅ EC2_STAGING_HOST is set"; fi
+          if [ -z "${{ secrets.EC2_USER }}" ]; then echo "❌ EC2_USER is empty"; else echo "✅ EC2_USER is set"; fi
+          if [ -z "${{ secrets.MONGO_URI }}" ]; then echo "❌ MONGO_URI is empty"; else echo "✅ MONGO_URI is set"; fi
+          
       - name: Deploy to EC2 Staging
         uses: appleboy/ssh-action@v1.0.3
         with:
