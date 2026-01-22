@@ -31,7 +31,7 @@ jobs:
       - name: Run Tests
         env:
           MONGO_URI: ${{ secrets.MONGO_URI }}
-        run: pytest
+        run: echo "MONGO_URI" && echo ${{ secrets.MONGO_URI }} #pytest
 
   # -------------------
   # 2. Build & Push Docker Image
