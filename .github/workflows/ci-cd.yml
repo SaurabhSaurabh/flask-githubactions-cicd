@@ -9,7 +9,7 @@ on:
 
 jobs:
   # -------------------
-  # 1. Run Tests (staging branch only)
+  # 1. Run Tests (staging branch only) TODO - remove echo
   # -------------------
   test:
     runs-on: ubuntu-latest
