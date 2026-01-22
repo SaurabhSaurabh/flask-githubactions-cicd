@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Build Docker Image
         run: |
-          docker build -t flask-app:latest .
+          docker build -t flask-app:01 .
 
   # -------------------
   # 3. Deploy to Staging (branch push)
@@ -74,7 +74,7 @@ jobs:
             cd /home/ubuntu/app && git pull
             sudo docker build -t flask-app:latest .
             sudo docker run -d --name flask-app -p 5000:5000 \
-              -e MONGO_URI=${{ secrets.MONGO_URI }} flask-app:latest
+              -e MONGO_URI=${{ secrets.MONGO_URI }} flask-app:01
 
   # -------------------
   # 4. Deploy to Production (release publish only)
